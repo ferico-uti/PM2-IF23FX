@@ -6,7 +6,7 @@
     npm i
   ```
 
-- Web
+- Mobile
   ```bash
     cd mobile
     npm i
