@@ -1,6 +1,7 @@
 import { Colors } from "@/constants/color";
 import { styles } from "@/styles/styles";
 import MaterialIcons from "@expo/vector-icons/MaterialIcons";
+import { router } from "expo-router";
 import React, { useState } from "react";
 import { StyleSheet, Text, View } from "react-native";
 import { Dropdown } from "react-native-element-dropdown";
@@ -125,7 +126,7 @@ export default function BarangAddPage() {
         <Button
           icon="close"
           mode="outlined"
-          onPress={() => console.log("Pressed")}>
+          onPress={() => router.back()}>
           Batal
         </Button>
       </View>

@@ -1,5 +1,11 @@
-import { View, StyleSheet, FlatList } from "react-native";
+import { Colors } from "@/constants/color";
+import { Strings } from "@/constants/strings";
+import { styles } from "@/styles/styles";
+import { formatRupiah } from "@/utils/scripts";
+import axios from "axios";
+import { router } from "expo-router";
 import React, { useEffect, useRef, useState } from "react";
+import { FlatList, View } from "react-native";
 import {
   Button,
   Card,
@@ -10,13 +16,7 @@ import {
   Text,
   TextInput,
 } from "react-native-paper";
-import { Colors } from "@/constants/color";
 import Feather from "react-native-vector-icons/Feather";
-import axios from "axios";
-import { Strings } from "@/constants/strings";
-import { formatRupiah } from "@/utils/scripts";
-import { router } from "expo-router";
-import { styles } from "@/styles/styles";
 
 export default function BarangViewPage() {
   // buat react hook (useState)
