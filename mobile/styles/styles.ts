@@ -4,7 +4,7 @@ import { StyleSheet } from "react-native";
 // buat styles CSS
 export const styles = StyleSheet.create({
   title: {
-    backgroundColor: "#a51c31",
+    backgroundColor: Colors.sponsor,
     color: Colors.white,
     width: "100%",
     textAlign: "center",
@@ -14,17 +14,30 @@ export const styles = StyleSheet.create({
   frame: {
     flex: 1,
     justifyContent: "flex-start",
-    alignItems: "center",
     backgroundColor: Colors.white,
-    // height: 500
   },
+  header_area: {
+    display: "flex",
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "center",
+    textAlign: "center",
+    position: "relative",
+    backgroundColor: Colors.sponsor,
+    padding: 10,
+  },
+
+  header_title: {
+    fontSize: 20,
+    color: Colors.white,
+  },
+
   fab: {
     position: "absolute",
     margin: 10,
     right: 5,
     bottom: 5,
-    backgroundColor: Colors.sponsor,
-    color: Colors.white,
+    backgroundColor: "#f9cf00",
     borderRadius: 50,
   },
   card: {
@@ -43,8 +56,29 @@ export const styles = StyleSheet.create({
     color: Colors.sponsor,
   },
 
-  component_area : {
+  component_area: {
     width: "100%",
-    marginBottom: 10
-  }
+    marginBottom: 10,
+  },
+
+  error_area: {
+    display: "flex",
+    flexDirection: "row",
+    alignItems: "center",
+    paddingHorizontal: 15,
+  },
+
+  error: {
+    color: "#ff0000",
+    fontSize: 12,
+    marginVertical: 5,
+    marginHorizontal: 0,
+    paddingLeft: 5,
+  },
+
+  back_button: {
+    position: "absolute",
+    left: 10,
+    color: Colors.white,
+  },
 });

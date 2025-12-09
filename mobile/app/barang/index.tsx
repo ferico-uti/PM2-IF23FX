@@ -194,7 +194,7 @@ export default function BarangViewPage() {
       {/* komponen FAB  */}
       <FAB
         icon="plus"
-        color={Colors.white}
+        color={"#000"}
         mode="flat"
         style={styles.fab}
         onPress={() => router.push("/barang/add")}
