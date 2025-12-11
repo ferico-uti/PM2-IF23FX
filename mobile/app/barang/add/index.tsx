@@ -6,10 +6,11 @@ import MaterialIcons from "@expo/vector-icons/MaterialIcons";
 import axios from "axios";
 import { router } from "expo-router";
 import React, { useRef, useState } from "react";
-import { StyleSheet, Text, View } from "react-native";
+import { Text, View } from "react-native";
 import { Dropdown } from "react-native-element-dropdown";
 import { Button, Snackbar, TextInput } from "react-native-paper";
 
+// buat array untuk data satuan
 const satuan = [
   { label: "Unit", value: "UNIT" },
   { label: "Pcs", value: "PCS" },
@@ -123,11 +124,11 @@ export default function BarangAddPage() {
   // buat fungsi untuk isi dropdown
   const renderItem = (item: DropdownItem) => {
     return (
-      <View style={styles_dropdown.item}>
-        <Text style={styles_dropdown.textItem}>{item.label}</Text>
+      <View style={styles.item}>
+        <Text style={styles.textItem}>{item.label}</Text>
         {item.value === textSatuan && (
           <MaterialIcons
-            style={styles_dropdown.icon}
+            style={styles.icon}
             name="check"
             size={24}
             color="black"
@@ -242,11 +243,11 @@ export default function BarangAddPage() {
       {/* komponen satuan barang */}
       <View style={styles.component_area}>
         <Dropdown
-          style={styles_dropdown.dropdown}
-          placeholderStyle={styles_dropdown.placeholderStyle}
-          selectedTextStyle={styles_dropdown.selectedTextStyle}
-          inputSearchStyle={styles_dropdown.inputSearchStyle}
-          iconStyle={styles_dropdown.iconStyle}
+          style={styles.dropdown}
+          placeholderStyle={styles.placeholderStyle}
+          selectedTextStyle={styles.selectedTextStyle}
+          inputSearchStyle={styles.inputSearchStyle}
+          iconStyle={styles.iconStyle}
           data={satuan}
           search
           maxHeight={300}
@@ -260,7 +261,7 @@ export default function BarangAddPage() {
           }}
           // renderLeftIcon={() => (
           //   <MaterialIcons
-          //     style={styles_dropdown.icon}
+          //     style={styles.icon}
           //     name="check"
           //     size={24}
           //     color="black"
@@ -315,51 +316,4 @@ export default function BarangAddPage() {
     </View>
   );
 }
-// setup internal style (untuk dropdown)
-const styles_dropdown = StyleSheet.create({
-  dropdown: {
-    margin: 0,
-    height: 50,
-    backgroundColor: "white",
-    borderRadius: 0,
-    padding: 16,
-    borderBottomWidth: 1,
-    borderColor: "#a3a3a3",
-    shadowColor: "#000",
-    shadowOffset: {
-      width: 0,
-      height: 1,
-    },
-    shadowOpacity: 0.9,
-    shadowRadius: 1.41,
 
-    // elevation: 2,
-  },
-  icon: {
-    marginRight: 5,
-  },
-  item: {
-    padding: 17,
-    flexDirection: "row",
-    justifyContent: "space-between",
-    alignItems: "center",
-  },
-  textItem: {
-    flex: 1,
-    fontSize: 16,
-  },
-  placeholderStyle: {
-    fontSize: 16,
-  },
-  selectedTextStyle: {
-    fontSize: 16,
-  },
-  iconStyle: {
-    width: 20,
-    height: 20,
-  },
-  inputSearchStyle: {
-    height: 40,
-    fontSize: 16,
-  },
-});

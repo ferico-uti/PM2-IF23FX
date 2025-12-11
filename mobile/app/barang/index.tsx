@@ -56,7 +56,7 @@ export default function BarangViewPage() {
   const deleteData = async () => {
     try {
       const response = await axios.delete(
-        `http://10.0.2.2:3001/api/barang/${idBarang}`
+        `${Strings.api_barang}/${idBarang}`
       );      
       // panggil fungsi messageSnackbarDelete
       messageSnackbarDelete(response.data.message);
@@ -165,24 +165,22 @@ export default function BarangViewPage() {
           <Card key={item.id} style={styles.card}>
             <Card.Title title={item.nama} subtitle={formatRupiah(item.harga)} />
             <Card.Actions>
-              <Button style={styles.card_button_secondary}>
+              <Button style={styles.card_button_secondary} onPress={() => router.push(`/barang/edit/${item.id}`)}>
                 <Feather
                   name="edit-2"
                   size={20}
-                  color="gray"
-                  onPress={() => setVisible(false)}
+                  color="gray"                  
                 />
               </Button>
-              <Button style={styles.card_button_primary}>
-                <Feather
-                  name="trash"
-                  size={20}
-                  color="white"
-                  onPress={() => {
+              <Button style={styles.card_button_primary} onPress={() => {
                     setVisible(true);
                     setIdBarang(item.id);
                     messageDelete(item.nama);
-                  }}
+                  }}>
+                <Feather
+                  name="trash"
+                  size={20}
+                  color="white"                  
                 />
               </Button>
             </Card.Actions>
