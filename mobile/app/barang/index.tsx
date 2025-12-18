@@ -1,3 +1,4 @@
+import CustomHeader from "@/components/custom/CustomHeader";
 import { Colors } from "@/constants/color";
 import { Strings } from "@/constants/strings";
 import { styles } from "@/styles/styles";
@@ -57,7 +58,7 @@ export default function BarangViewPage() {
     try {
       const response = await axios.delete(
         `${Strings.api_barang}/${idBarang}`
-      );      
+      );
       // panggil fungsi messageSnackbarDelete
       messageSnackbarDelete(response.data.message);
     } finally {
@@ -120,11 +121,10 @@ export default function BarangViewPage() {
 
   return (
     <View style={styles.frame}>
-      <Text style={styles.title}>Tampil Data Barang</Text>
-      {/* <Text style={[styles.title]}>Contoh CSS (Internal)</Text>
-      <Text style={{ textAlign: "center", color: "red", backgroundColor: "yellow" }}>
-        Halaman Tampil Data Barang
-      </Text> */}
+      {/* panggil reusable component CustomHeader 
+          (components/custom/CustomHeader.tsx)
+      */}
+      <CustomHeader title="Tampil Data Barang" iconBack={false} />
 
       {/* komponen search */}
       <View style={{ width: "100%" }}>
@@ -169,18 +169,18 @@ export default function BarangViewPage() {
                 <Feather
                   name="edit-2"
                   size={20}
-                  color="gray"                  
+                  color="gray"
                 />
               </Button>
               <Button style={styles.card_button_primary} onPress={() => {
-                    setVisible(true);
-                    setIdBarang(item.id);
-                    messageDelete(item.nama);
-                  }}>
+                setVisible(true);
+                setIdBarang(item.id);
+                messageDelete(item.nama);
+              }}>
                 <Feather
                   name="trash"
                   size={20}
-                  color="white"                  
+                  color="white"
                 />
               </Button>
             </Card.Actions>

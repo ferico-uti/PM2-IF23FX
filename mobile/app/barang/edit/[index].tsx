@@ -1,3 +1,4 @@
+import CustomHeader from '@/components/custom/CustomHeader';
 import { Colors } from '@/constants/color';
 import { Strings } from '@/constants/strings';
 import { styles } from '@/styles/styles';
@@ -123,7 +124,7 @@ export default function BarangEditPage() {
 
             // jika success == true
             if (response.data.success) {
-                
+
                 // hilangkan focus
                 Keyboard.dismiss();
 
@@ -161,21 +162,10 @@ export default function BarangEditPage() {
 
     return (
         <View style={styles.frame}>
-            {/* area header */}
-            <View style={styles.header_area}>
-                <MaterialIcons
-                    name="arrow-back"
-                    size={24}
-                    style={styles.back_button}
-                    onPress={() => {
-                        router.back();
-                    }}
-                />
-
-                <Text style={styles.header_title}>
-                    Ubah Data Barang
-                </Text>
-            </View>
+            {/* panggil reusable component CustomHeader 
+                (components/custom/CustomHeader.tsx)
+            */}
+            <CustomHeader title="Ubah Data Barang" iconBack={true} />
 
             {/* komponen kode barang */}
             <View style={styles.component_area}>
