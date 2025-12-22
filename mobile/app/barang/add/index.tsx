@@ -10,6 +10,7 @@ import React, { useRef, useState } from "react";
 import { Text, View } from "react-native";
 import { Dropdown } from "react-native-element-dropdown";
 import { Button, Snackbar, TextInput } from "react-native-paper";
+import * as Notifications from "expo-notifications";
 
 // buat array untuk data satuan
 const satuan = [
@@ -94,6 +95,22 @@ export default function BarangAddPage() {
 
       // jika success == true
       if (response.data.success) {
+        // tampiikan notifikasi
+        await Notifications.scheduleNotificationAsync({
+          content: {
+            title: "Informasi",
+            body: response.data.message,
+          },
+          // jika notifikasi ingin tanpa delay
+          trigger: null,
+
+          // jika notifikasi ingin delay (misal 5 detik)
+          // trigger: {
+          //   type: Notifications.SchedulableTriggerInputTypes.TIME_INTERVAL,
+          //   seconds: 5
+          // },
+        });
+
         // reset form
         setTextKode("");
         setTextNama("");
