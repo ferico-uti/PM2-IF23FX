@@ -12,7 +12,7 @@
     npm i
   ```
 
-## Development Project
+## Development Mode
 - Mobile
   ```bash
     npx expo install expo-dev-client
